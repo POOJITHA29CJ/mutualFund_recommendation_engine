@@ -25,7 +25,7 @@ st.markdown(
         color: orange;              
     }
     div[data-testid="stHorizontalBlock"] div.stButton:nth-child(1) button {
-        background-color: #eca548;
+        background-color:#F8B88B;
         color: black;
         font-weight: bold;
         border-radius: 8px;
@@ -76,10 +76,10 @@ if len(st.session_state["messages"]) == 0:
     st.markdown("Hi there 👋! How can i help you...")
     st.markdown("---")
     st.markdown("##### Or try one of these starters:")
-    cols = st.columns(3)
+    cols = st.columns(2)
     with cols[0]:
         st.button(
-            "What are the funds managed by Ashish Aggarwal and is outperforming?",
+            "What are the funds managed by Ashish Aggarwal?",
             on_click=send_prompt_starter,
             args=("What are the funds managed by Ashish Aggarwal?",),
         )
@@ -88,12 +88,6 @@ if len(st.session_state["messages"]) == 0:
             "Show me funds with low volatility",
             on_click=send_prompt_starter,
             args=("Show me all funds with low volatility",),
-        )
-    with cols[2]:
-        st.button(
-            "What are the subcategories under equity category",
-            on_click=send_prompt_starter,
-            args=("What are the subcategories under equity category",),
         )
 
 

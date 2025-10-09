@@ -7,11 +7,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
 graph = get_neo4j_graph()
 graph.refresh_schema()
-
-
+schema=graph.schema
 @tool
 def neo4j_query(input: str) -> str:
     """
+    Use this tool to find factual data about MutualFunds, managers, category,subcategory or sectors from the graph database.
     This function is a  Cypher query generator which queries neo4j and get the results.
     This function returns the direct, raw result from the graph query.
     """
