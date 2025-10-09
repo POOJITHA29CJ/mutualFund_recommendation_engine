@@ -1,0 +1,16 @@
+sector_id,sector_name
+s1,Financial
+s2,Consumer Discretionary
+s3,Technology
+s4,Industrials
+s5,Materials
+s6,Healthcare
+s7,Energy & Utilities
+s8,Consumer Staples
+s9,SOV
+s10,AAA
+s11,AA
+s12,Cash Equivalent
+s13,A and Below
+s14,Unrated / Others
+s15,Bill Rediscounting

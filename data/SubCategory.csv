@@ -1,0 +1,36 @@
+subcat_id,subcat_name
+s1,Flexi Cap
+s2,Large Cap
+s3,Thematic-Consumption
+s4,Sectoral-Technology
+s5,Thematic-Dividend Yield
+s6,ELSS
+s7,Thematic-Infrastructure
+s8,Large & MidCap
+s9,Thematic
+s10,Mid Cap
+s11,Thematic-MNC
+s12,Sectoral-Pharma
+s13,Thematic-PSU
+s14,Small Cap
+s15,Value Oriented
+s16,Thematic-ESG
+s17,Sectoral-Banking
+s18,Thematic-Energy
+s19,Dynamic Bond
+s20,Liquid
+s21,Banking and PSU
+s22,Corporate Bond
+s23,Credit Risk
+s24,Floater
+s25,Medium to Long Duration
+s26,Low Duration
+s27,Medium Duration
+s28,Money Market
+s29,Short Duration
+s30,Ultra Short Duration
+s31,Gilt with 10 year Constant Duration
+s32,Gilt
+s33,Overnight
+s34,Target Maturity
+s35,Long Duration
