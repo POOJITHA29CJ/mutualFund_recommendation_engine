@@ -12,7 +12,7 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
 @tool
 def mongodb_analytical_query(user_question: str) -> str:
     """
-    Use this tool ONLY when you already have fund_ids and need to retrieve specific
+    Use this tool ONLY when you already have fund_ids or fund_name and need to retrieve specific
     analytical insights like performance, volatility, or risk metrics from the MongoDB
     database. The input MUST be a clear question that includes the fund_ids.
     """

@@ -72,7 +72,7 @@ class ConfigData:
                     - Data Type: Embedded Document
                     - Fields:
                         - sector_bias:
-                            - Description: Type of sector bias (e.g.,growth-oriented , debt-oriented).
+                            - Description: Type of sector bias (e.g.,growth-oriented ,defensive ).
                             - Data Type: String
                         - sector_leadership:
                             - Description: Leading sector or rating (e.g., AAA).
@@ -96,4 +96,40 @@ class ConfigData:
     FEW_SHOT_EXAMPLE_1 = [
         {"$match": {"cleaned_data.performance_tag": "Outperforming_Benchmark"}},
         {"$project": {"fund_id": 1, "fund_name": 1, "_id": 0}},
+    ]
+    json_ex_2 = [
+        {
+            "$search": {
+                "index": "default",
+                "compound": {
+                    "should": [
+                        {
+                            "text": {
+                                "query": "sbi bse 100 etf",
+                                "path": "fund_name",
+                                "fuzzy": {"maxEdits": 2, "prefixLength": 2},
+                            }
+                        },
+                        {
+                            "text": {
+                                "query": "360 one focussed dir",
+                                "path": "fund_name",
+                                "fuzzy": {"maxEdits": 2, "prefixLength": 2},
+                            }
+                        },
+                    ]
+                },
+            }
+        },
+        {
+            "$project": {
+                "fund_name": 1,
+                "fund_id": 1,
+                "cleaned_data": 1,
+                "score": {"$meta": "searchScore"},
+                "_id": 0,
+            }
+        },
+        {"$sort": {"score": -1}},
+        {"$limit": 2},
     ]

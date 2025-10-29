@@ -7,14 +7,18 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
 graph = get_neo4j_graph()
 graph.refresh_schema()
-schema=graph.schema
+schema = graph.schema
+
+
 @tool
 def neo4j_query(input: str) -> str:
     """
-    Use this tool to find factual data about MutualFunds, managers, category,subcategory or sectors from the graph database.
-    This function is a  Cypher query generator which queries neo4j and get the results.
-    This function returns the direct, raw result from the graph query.
+    Always use this tool to retrieve factual or structural information about mutual funds,
+    including *fund managers, categories, subcategories, sectors, fund houses, benchmarks,
+    and risk profiles*. Do NOT attempt to answer from prior knowledge.
+    This function generates and executes Cypher queries on Neo4j and returns raw query results.
     """
+
     chain = GraphCypherQAChain.from_llm(
         llm,
         graph=graph,
@@ -22,6 +26,7 @@ def neo4j_query(input: str) -> str:
         cypher_prompt=CYPHER_GENERATION_PROMPT,
         top_k=10,
         allow_dangerous_requests=True,
+        return_direct=True,
     )
-    result = chain.invoke({"query": input})
+    result = chain.invoke({"query": input, "schema": schema})
     return result.get("result")

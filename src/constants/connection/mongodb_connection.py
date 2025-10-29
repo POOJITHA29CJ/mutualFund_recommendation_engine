@@ -13,3 +13,13 @@ def get_mongo_connection():
     client = MongoClient(uri)
     db = client[db_name]
     return db[collection_name]
+
+
+def get_mongo_connection_for_fund():
+    uri = "mongodb://localhost:27017"
+    db_name = "fundDB"
+    collection_name = "fund_structured"
+
+    client = MongoClient(uri)
+    db = client[db_name]
+    return db[collection_name]
